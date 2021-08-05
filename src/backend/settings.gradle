@@ -1,0 +1,5 @@
+rootProject.name = 'clinic'
+
+include 'shared'
+include 'frontdesk'
+include 'management'

@@ -1,0 +1,22 @@
+<dx-data-grid
+    [dataSource]="dataSource"
+    [showBorders]="true"
+    (onRowUpdating)="onRowUpdating($event)"
+    (onRowInserting)="onRowInserting($event)"
+    [columnAutoWidth]="true">
+    <dxo-editing
+        mode="cell"
+        [allowAdding]="true"
+        [allowUpdating]="true"
+        [allowDeleting]="true">
+    </dxo-editing>
+
+    <dxi-column dataField="id" dataType="number" [visible]="false"></dxi-column>
+    <dxi-column dataField="clientId" dataType="number" [visible]="false"></dxi-column>
+    <dxi-column dataField="name" dataType="string">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="sex" dataType="string">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+</dx-data-grid>
