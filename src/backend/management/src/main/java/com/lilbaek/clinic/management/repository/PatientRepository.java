@@ -1,12 +1,12 @@
 package com.lilbaek.clinic.management.repository;
 
-import com.lilbaek.clinic.management.domain.PatientDbEntry;
-import org.springframework.data.repository.CrudRepository;
+import com.lilbaek.clinic.management.db.PatientDbEntry;
+import com.lilbaek.shared.interfaces.IRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface PatientRepository extends CrudRepository<PatientDbEntry, Integer> {
+public interface PatientRepository extends IRepository<PatientDbEntry, Integer> {
     List<PatientDbEntry> findByClientId(Integer clientId);
 }

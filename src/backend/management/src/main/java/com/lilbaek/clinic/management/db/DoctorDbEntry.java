@@ -1,5 +1,6 @@
-package com.lilbaek.clinic.management.domain;
+package com.lilbaek.clinic.management.db;
 
+import com.lilbaek.shared.interfaces.IAggregateRoot;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,12 +9,12 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Doctors")
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-public class DoctorDbEntry {
+public class DoctorDbEntry implements IAggregateRoot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

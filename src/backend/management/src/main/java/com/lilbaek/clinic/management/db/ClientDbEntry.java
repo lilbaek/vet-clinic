@@ -1,19 +1,19 @@
-package com.lilbaek.clinic.management.domain;
+package com.lilbaek.clinic.management.db;
 
+import com.lilbaek.shared.interfaces.IAggregateRoot;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
 @Table(name = "Clients")
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode()
-public class ClientDbEntry {
+public class ClientDbEntry implements IAggregateRoot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,4 +33,7 @@ public class ClientDbEntry {
 
     @Column(name = "PreferredDoctorId")
     private int preferredDoctorId;
+
+    @OneToMany(mappedBy="client", cascade = CascadeType.REMOVE)
+    private Set<PatientDbEntry> patients;
 }

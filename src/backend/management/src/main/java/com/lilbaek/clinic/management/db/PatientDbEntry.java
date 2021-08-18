@@ -1,23 +1,25 @@
-package com.lilbaek.clinic.management.domain;
+package com.lilbaek.clinic.management.db;
 
+import com.lilbaek.shared.interfaces.IAggregateRoot;
 import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Patients")
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-public class PatientDbEntry {
+public class PatientDbEntry implements IAggregateRoot {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
-    @Column(name = "ClientId")
-    private Integer clientId;
+    @ManyToOne
+    @JoinColumn(name="ClientId", nullable=false)
+    private ClientDbEntry client;
 
     @Column(name = "Name")
     private String name;

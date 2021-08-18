@@ -1,9 +1,9 @@
 package com.lilbaek.clinic.management.resource;
 
-import com.lilbaek.clinic.management.domain.RoomDbEntry;
-import com.lilbaek.clinic.management.repository.RoomRepository;
+import com.lilbaek.clinic.management.db.RoomDbEntry;
 import com.lilbaek.clinic.management.resource.model.CreateRoomModel;
 import com.lilbaek.clinic.management.resource.model.UpdateRoomModel;
+import com.lilbaek.clinic.management.service.RoomService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,20 +16,20 @@ import java.util.Optional;
 @RequestMapping(value = "/rooms")
 @Validated
 public class RoomResource {
-    private final RoomRepository repository;
+    private final RoomService roomService;
 
-    public RoomResource(RoomRepository repository) {
-        this.repository = repository;
+    public RoomResource(RoomService roomService) {
+        this.roomService = roomService;
     }
 
     @GetMapping
     public Iterable<RoomDbEntry> getAll() {
-        return repository.findAll();
+        return roomService.findAll();
     }
 
     @GetMapping(value = "/{id}")
     public RoomDbEntry findById(@PathVariable Integer id) {
-        Optional<RoomDbEntry> result = repository.findById(id);
+        Optional<RoomDbEntry> result = roomService.findById(id);
         if (result.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -38,23 +38,22 @@ public class RoomResource {
 
     @PostMapping
     public RoomDbEntry save(@RequestBody @Valid CreateRoomModel entry) {
-        return repository.save(RoomDbEntry.builder().name(entry.getName()).build());
+        return roomService.save(RoomDbEntry.builder().name(entry.getName()).build());
     }
 
     @PutMapping(value = "/{id}")
     public RoomDbEntry update(@PathVariable Integer id, @RequestBody @Valid UpdateRoomModel entry) {
-        var record = repository.findById(id);
+        var record = roomService.findById(id);
         if (record.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         var existing = record.get();
         existing.setName(entry.getName());
-        return repository.save(existing);
+        return roomService.save(existing);
     }
 
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Integer id) {
-        //TODO: Validate that it can be deleted
-        repository.deleteById(id);
+        roomService.deleteById(id);
     }
 }
