@@ -21,6 +21,9 @@ public class PatientDbEntry implements IAggregateRoot {
     @JoinColumn(name="ClientId", nullable=false)
     private ClientDbEntry client;
 
+    @Column(name = "ClientId", insertable = false, updatable = false)
+    private Integer clientId;
+
     @Column(name = "Name")
     private String name;
 
