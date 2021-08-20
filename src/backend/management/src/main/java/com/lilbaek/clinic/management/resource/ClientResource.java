@@ -1,6 +1,6 @@
 package com.lilbaek.clinic.management.resource;
 
-import com.lilbaek.clinic.management.db.ClientDbEntry;
+import com.lilbaek.clinic.management.repository.db.ClientDbEntry;
 import com.lilbaek.clinic.management.resource.model.CreateClientModel;
 import com.lilbaek.clinic.management.resource.model.UpdateClientModel;
 import com.lilbaek.clinic.management.service.ClientService;

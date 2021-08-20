@@ -1,6 +1,6 @@
 package com.lilbaek.clinic.management.repository;
 
-import com.lilbaek.clinic.management.db.ClientDbEntry;
+import com.lilbaek.clinic.management.repository.db.ClientDbEntry;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 

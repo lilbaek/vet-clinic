@@ -1,6 +1,6 @@
 package com.lilbaek.clinic.management.resource;
 
-import com.lilbaek.clinic.management.db.RoomDbEntry;
+import com.lilbaek.clinic.management.repository.db.RoomDbEntry;
 import com.lilbaek.clinic.management.resource.model.CreateRoomModel;
 import com.lilbaek.clinic.management.resource.model.UpdateRoomModel;
 import com.lilbaek.clinic.management.service.RoomService;

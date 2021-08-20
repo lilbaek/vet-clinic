@@ -1,6 +1,6 @@
 package com.lilbaek.clinic.management.repository;
 
-import com.lilbaek.clinic.management.db.PatientDbEntry;
+import com.lilbaek.clinic.management.repository.db.PatientDbEntry;
 import com.lilbaek.shared.interfaces.IRepository;
 import org.springframework.stereotype.Repository;
 

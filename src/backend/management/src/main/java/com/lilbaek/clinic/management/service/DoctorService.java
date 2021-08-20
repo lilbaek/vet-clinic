@@ -1,6 +1,6 @@
 package com.lilbaek.clinic.management.service;
 
-import com.lilbaek.clinic.management.db.DoctorDbEntry;
+import com.lilbaek.clinic.management.repository.db.DoctorDbEntry;
 import com.lilbaek.clinic.management.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

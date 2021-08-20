@@ -1,6 +1,6 @@
 package com.lilbaek.clinic.management.service;
 
-import com.lilbaek.clinic.management.db.RoomDbEntry;
+import com.lilbaek.clinic.management.repository.db.RoomDbEntry;
 import com.lilbaek.clinic.management.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

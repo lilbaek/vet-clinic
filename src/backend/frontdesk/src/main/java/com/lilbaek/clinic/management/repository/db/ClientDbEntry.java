@@ -1,4 +1,4 @@
-package com.lilbaek.clinic.management.db;
+package com.lilbaek.clinic.management.repository.db;
 
 import com.lilbaek.shared.model.BaseDbEntity;
 import lombok.AllArgsConstructor;
